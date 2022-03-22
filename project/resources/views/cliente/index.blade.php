@@ -9,9 +9,14 @@
 
                 <div class="card-body">
                 @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Success!</strong>                                 {{ session('status') }}  
+
+                </div>
+
+                           
+                           
                     @endif
 
                     <table class="table table-hover ">
@@ -52,7 +57,7 @@
                         </tbody>
                         <tfoot>
                             <tr >
-                                <td colspan='8'><a class="btn btn-primary " href="{{url('cliente/new')}}"><i class="fa fa-plus" ></i></a></td>
+                                <td colspan='8'><a class="btn btn-primary " href="{{url('clientes/new')}}"><i class="fa fa-plus" ></i></a></td>
 
                             </tr>
                         </tfoot>
@@ -62,4 +67,5 @@
         </div>
     </div>
 </div>
+
 @endsection

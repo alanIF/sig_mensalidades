@@ -37,7 +37,7 @@ class ClienteController extends Controller
         
 
        
-        return Redirect::to('/cliente')->with('status', 'cliente adicionado com sucesso');
+        return Redirect::to('/clientes')->with('status', 'cliente adicionado com sucesso');
     }
     public function update($id ,Request $request){
         $cliente= Cliente::findOrFail($id);
@@ -52,7 +52,7 @@ class ClienteController extends Controller
         $cliente->user_id= $user;
         $cliente->save(); 
 
-        return Redirect::to('/cliente')->with('status', 'cliente atualizado com sucesso');;
+        return Redirect::to('/clientes')->with('status', 'cliente atualizado com sucesso');;
     }
     public function edit($id){
         $cliente= Cliente::findOrFail($id);
@@ -62,7 +62,7 @@ class ClienteController extends Controller
         $cliente = Cliente::findOrFail($id);
         $cliente->delete();
 
-        return Redirect::to('/cliente')->with('status', 'cliente excluído com sucesso');;
+        return Redirect::to('/clientes')->with('status', 'cliente excluído com sucesso');;
     }
 
 }
