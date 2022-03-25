@@ -32,5 +32,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/clientes/{id}/edit',  [App\Http\Controllers\ClienteController::class, 'edit']);
     Route::delete('/clientes/delete/{id}',  [App\Http\Controllers\ClienteController::class, 'delete']);
 
+	Route::get('/mensalidades',  [App\Http\Controllers\MensalidadeController::class, 'index']);
+	Route::get('/mensalidades/new',  [App\Http\Controllers\MensalidadeController::class, 'new']);
+	Route::post('/mensalidades/add',  [App\Http\Controllers\MensalidadeController::class, 'add']);
+	Route::post('/mensalidades/update/{id}',  [App\Http\Controllers\MensalidadeController::class, 'update']);
+	Route::post('/mensalidades/pagar/{id}',  [App\Http\Controllers\MensalidadeController::class, 'pagar']);
+
+    Route::get('/mensalidades/{id}/edit',  [App\Http\Controllers\MensalidadeController::class, 'edit']);
+    Route::delete('/mensalidades/delete/{id}',  [App\Http\Controllers\MensalidadeController::class, 'delete']);
+	Route::get('/mensalidades/gerar',  [App\Http\Controllers\MensalidadeController::class, 'gerar']);
 
 });
