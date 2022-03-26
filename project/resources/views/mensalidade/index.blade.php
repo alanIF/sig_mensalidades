@@ -32,12 +32,12 @@
                             <th scope="col">Situação</th>
 
                             <th colspan='3'>Ações</th>
-                            
+                            <th>  <input class="form-control" id="myInput" type="text" placeholder="Search.."></th>
 
 
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="myTable">
                         @foreach($mensalidades as $m)
                         @if(strcmp($m->status, "Pago")==0)
                             <tr class="table-success">
@@ -58,16 +58,28 @@
 
                             <td><a class="btn btn-warning " href="mensalidades/{{$m->id}}/edit"><i class="fa fa-edit" ></i></a> </td>
                             <td>   <form action="mensalidades/delete/{{$m->id}}" method="post"> @csrf @method('delete')<button class="btn btn-danger"><i class="fa fa-trash" ></i></button></form></td>
+                           <td></td>
                             </tr>
                             @endforeach
                         </tbody>
                         <tfoot>
                             <tr >
-                                <td colspan='8'><a class="btn btn-primary " href="{{url('mensalidades/new')}}"><i class="fa fa-plus" ></i></a></td>
+                                <td colspan='10'><a class="btn btn-primary " href="{{url('mensalidades/new')}}"><i class="fa fa-plus" ></i></a></td>
 
                             </tr>
                         </tfoot>
                         </table>
+                        
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
                 </div>
             </div>
         </div>
