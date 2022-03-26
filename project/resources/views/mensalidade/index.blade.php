@@ -19,7 +19,7 @@
                            
                     @endif
 
-                    <table class="table table-hover ">
+                    <table class="table table-hover table-responsive">
                         <thead>
                             <tr>
                             <th scope="col">#</th>
@@ -39,7 +39,12 @@
                         </thead>
                         <tbody>
                         @foreach($mensalidades as $m)
-                        <tr>
+                        @if(strcmp($m->status, "Pago")==0)
+                            <tr class="table-success">
+                        @else
+                            <tr>
+                        @endif
+                        
 
                             <td >{{$m->id}}</td>
                             <td>{{$m->cliente}}</td>
