@@ -9,11 +9,12 @@
 
                 <div class="card-body">
                 @if (session('status'))
-                <div class="alert alert-success alert-dismissible">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>Success!</strong>                                 {{ session('status') }}  
-
-                </div>
+                 
+              
+        <div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Successo!</strong>  {{ session('status') }}  
+  </div>
 
                            
                            
