@@ -49,14 +49,14 @@ class MensalidadeController extends Controller
     }
     public function update($id ,Request $request){
         $mensalidade= Mensalidade::findOrFail($id);
+        $data_vencimento =explode("-" ,$request->data_vencimento);
+      
+        $mensalidade->dia_vencimento =$data_vencimento[2] ;
+        $mensalidade ->mes_vencimento=$data_vencimento[1];
+        $mensalidade ->ano_vencimento=$data_vencimento[0];
 
-        $mensalidade ->dia_vencimento=$request->dia_vencimento;
-        $mensalidade ->mes_vencimento=$request->mes_vencimento;
-        $mensalidade ->ano_vencimento=$request->ano_vencimento;
         $mensalidade ->valor=$request->valor;
-        $mensalidade ->data_pagamento= $request->data_pagamento;
         $mensalidade ->status=$request->status;
-        $mensalidade->cliente_id= $request->cliente_id;
 
 
         $mensalidade->save(); 
