@@ -7,15 +7,16 @@ use App\Models\Mensalidade;
 use Facade\FlareClient\Http\Client;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
-
+use App\Http\Controllers\FinanceiroController;
 class MensalidadeController extends Controller
 {
     public function index(){
         $user = Auth::id();
-
+        $financeiro = new FinanceiroController();
         $sql = 'Select m.id id, c.nome cliente, m.dia_vencimento dia_vencimento, m.mes_vencimento mes_vencimento, m.ano_vencimento ano_vencimento, m.data_pagamento data_pagamento, m.valor valor, m.status status from mensalidade m, cliente c where c.user_id='.$user.' and c.id=m.cliente_id';
         $mensalidades = \DB::select($sql);
-        
+        $financeiro->atualizar_status($mensalidades);
+
         return view('mensalidade.index', ['mensalidades' => $mensalidades]);
     }
     // form de cadastrar
