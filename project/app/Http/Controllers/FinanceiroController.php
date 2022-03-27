@@ -14,22 +14,26 @@ class FinanceiroController
       
        foreach($mensalidades as $m){
             $mensalidade= Mensalidade::findOrFail($m->id);
-
-            if($data_atual[2]>$m->ano_vencimento){
-
-                $mensalidade->status= "Atrasado";
-                $mensalidade->save();
+            if(strcmp($m->status, "Pago")==0){
+                
             }else{
-                if($data_atual[1]>$m->mes_vencimento){
+                if($data_atual[2]>$m->ano_vencimento){
+
                     $mensalidade->status= "Atrasado";
-                    $mensalidade->save();               
+                    $mensalidade->save();
                 }else{
-                    if(($data_atual[1]==$m->mes_vencimento)&&($data_atual[0]>$m->dia_vencimento)){
+                    if($data_atual[1]>$m->mes_vencimento){
                         $mensalidade->status= "Atrasado";
-                        $mensalidade->save();                
+                        $mensalidade->save();               
+                    }else{
+                        if(($data_atual[1]==$m->mes_vencimento)&&($data_atual[0]>$m->dia_vencimento)){
+                            $mensalidade->status= "Atrasado";
+                            $mensalidade->save();                
+                        }
                     }
                 }
             }
+            
        }
 
    }

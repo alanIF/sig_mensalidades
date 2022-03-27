@@ -42,8 +42,11 @@
                         @foreach($mensalidades as $m)
                         @if(strcmp($m->status, "Pago")==0)
                             <tr class="table-success">
+                        @elseif(strcmp($m->status, "Atrasado")==0)
+                            <tr class="table-danger">
                         @else
-                            <tr>
+                        <tr class="table-info">
+
                         @endif
                         
 
