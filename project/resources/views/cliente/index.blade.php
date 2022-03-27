@@ -28,7 +28,7 @@
                             <th scope="col">telefone</th>
                             <th scope="col">Situação</th>
 
-                            <th colspan='2'>Ações</th>
+                            <th colspan='3'>Ações</th>
                             <th>  <input class="form-control" id="myInput" type="text" placeholder="Search.."></th>
 
 
@@ -47,6 +47,7 @@
                             <td>{{$c->contato}}</td>
                             <td>{{$c->status}}</td>
 
+                            <td><a class="btn btn-info " href="clientes/{{$c->id}}/eye"><i class="fa fa-eye" ></i></a> </td>
 
                             <td><a class="btn btn-warning " href="clientes/{{$c->id}}/edit"><i class="fa fa-edit" ></i></a> </td>
                             <td>   <form action="clientes/delete/{{$c->id}}" method="post"> @csrf @method('delete')<button class="btn btn-danger"><i class="fa fa-trash" ></i></button></form></td>
@@ -56,7 +57,7 @@
                         </tbody>
                         <tfoot>
                             <tr >
-                                <td colspan='10'><a class="btn btn-primary " href="{{url('clientes/new')}}"><i class="fa fa-plus" ></i></a></td>
+                                <td colspan='11'><a class="btn btn-primary " href="{{url('clientes/new')}}"><i class="fa fa-plus" ></i></a></td>
 
                             </tr>
                         </tfoot>

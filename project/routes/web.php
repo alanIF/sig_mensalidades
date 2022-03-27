@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/clientes/update/{id}',  [App\Http\Controllers\ClienteController::class, 'update']);
     Route::get('/clientes/{id}/edit',  [App\Http\Controllers\ClienteController::class, 'edit']);
     Route::delete('/clientes/delete/{id}',  [App\Http\Controllers\ClienteController::class, 'delete']);
+    Route::get('/clientes/{id}/eye',  [App\Http\Controllers\ClienteController::class, 'eye']);
 
 	Route::get('/mensalidades',  [App\Http\Controllers\MensalidadeController::class, 'index']);
 	Route::get('/mensalidades/new',  [App\Http\Controllers\MensalidadeController::class, 'new']);
