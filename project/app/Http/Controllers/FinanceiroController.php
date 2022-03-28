@@ -23,12 +23,17 @@ class FinanceiroController
                     $mensalidade->save();
                 }else{
                     if($data_atual[1]>$m->mes_vencimento){
-                        $mensalidade->status= "Atrasado";
-                        $mensalidade->save();               
+                        if(strcmp($m->status, "Atrasado")!=0){
+                            $mensalidade->status= "Atrasado";
+                            $mensalidade->save();   
+                        }
+                                   
                     }else{
                         if(($data_atual[1]==$m->mes_vencimento)&&($data_atual[0]>$m->dia_vencimento)){
-                            $mensalidade->status= "Atrasado";
-                            $mensalidade->save();                
+                            if(strcmp($m->status, "Atrasado")!=0){
+                                $mensalidade->status= "Atrasado";
+                                $mensalidade->save();   
+                            }               
                         }
                     }
                 }

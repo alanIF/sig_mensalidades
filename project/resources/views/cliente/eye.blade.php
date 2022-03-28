@@ -19,8 +19,9 @@
                            
                            
                     @endif
+                    <div class="table-responsive">
 
-                    <table class="table table-hover table-responsive">
+                    <table class="table table-hover ">
                         <thead>
                             <tr>
                             <th scope="col">#</th>
@@ -71,7 +72,7 @@
                             </tr>
                         </tfoot>
                         </table>
-                        
+                    </div>
 <script>
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
