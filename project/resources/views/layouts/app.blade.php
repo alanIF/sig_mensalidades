@@ -31,6 +31,8 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                @guest
+                @else
                 <div class="collapse navbar-collapse"  id="navbarSupportedContent">
                     <ul class="navbar-nav">
                     <li class="nav-item">
@@ -44,6 +46,8 @@
                     </li>    
                     </ul>
                 </div> 
+                @endguest
+                
                 <div class="collapse navbar-collapse">
                   
 
