@@ -42,5 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/mensalidades/{id}/edit',  [App\Http\Controllers\MensalidadeController::class, 'edit']);
     Route::delete('/mensalidades/delete/{id}',  [App\Http\Controllers\MensalidadeController::class, 'delete']);
 	Route::get('/mensalidades/gerar',  [App\Http\Controllers\MensalidadeController::class, 'gerar']);
+	
+    Route::get('/relatorios',  [App\Http\Controllers\RelatorioController::class, 'index']);
 
 });

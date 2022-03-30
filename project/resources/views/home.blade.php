@@ -14,7 +14,7 @@
                         </div>
                     @endif
                     <div class="card">
-                <div class="card-header">Clientes</div>
+                <div class="card-header">Mensalidades Atrasados</div>
 
                 <div class="card-body">
                 @if (session('status'))
